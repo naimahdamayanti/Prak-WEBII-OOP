@@ -132,5 +132,6 @@ Adapun beberapa yang akan kita pelajari dalam menggunakan metode OOP, sebagai be
   </p>
   
   <li><b>Metode Tambahan serta Atribut dan Metode</b></li>
-  <p>a. </p>
+  <p>a. Class</p>
+  <p></p>
 </ol>
