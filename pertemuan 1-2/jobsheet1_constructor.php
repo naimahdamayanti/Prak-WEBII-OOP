@@ -7,7 +7,7 @@
         public $jurusan;
 
         // Konstruktor untuk menginisialisasi properti saat objek dibuat
-        public function __construct($nama, $nim, $jurusan = "Naimah") {
+        public function __construct($nama, $nim, $jurusan) {
             // Inisialisasi properti dengan nilai yang diberikan melalui parameter
             $this->nama = $nama;
             $this->nim = $nim;
@@ -16,7 +16,7 @@
     }
 
     // Membuat objek Mahasiswa dengan nilai yang diberikan
-    $mahasiswa1 = new Mahasiswa("Salsa", "230302020", "Komputer dan Bisnis");
+    $mahasiswa1 = new Mahasiswa("Naimah", "230302020", "Komputer dan Bisnis");
 
     // Menampilkan nilai properti objek Mahasiswa secara langsung
     echo $mahasiswa1->nama;
