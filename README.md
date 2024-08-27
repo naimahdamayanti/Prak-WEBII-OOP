@@ -368,4 +368,141 @@ class Mahasiswa {
 ```
 </p>
 <p>d. Metode tampilkanData()</p>
+<p>Metode tampilkanData mengembalikan informasi mahasiswa dalam format string. Properti $nama, $nim, dan $jurusan diakses menggunakan $this-> untuk menampilkan nilai yang sudah diinisialisasi sebelumnya.
+
+```
+// Metode untuk menampilkan data mahasiswa
+    public function tampilkanData() {
+        // Mengembalikan string yang berisi informasi mahasiswa
+        return "Nama: $this->nama, NIM: $this->nim, Jurusan: $this->jurusan";
+    }
+}
+```
+</p>
+<p>e. Instansiasi Objek dan Penggunaan Metode</p>
+<p>Objek Mahasiswa dibuat dengan memanggil konstruktor dan memberikan nilai untuk setiap parameter ("Naimah Damayanti", "230302020", dan "Komputer dan Bisnis"). Sedangkan, metode tampilkanData() dipanggil untuk menampilkan informasi yang disimpan dalam objek tersebut.
+
+```
+// Membuat objek Mahasiswa dengan nilai yang diberikan
+$mahasiswa = new Mahasiswa("Naimah Damayanti", "230302020", "Komputer dan Bisnis");
+
+// Menampilkan data mahasiswa menggunakan metode tampilkanData()
+echo $mahasiswa->tampilkanData();
+```
+</p>
+<p>f. Output Kode</p>
+<p>
+  
+  ```
+  Nama: Naimah Damayanti, NIM: 230302020, Jurusan: Komputer dan Bisnis
+  ```
+</p>
+
+<li><b>Encapsulation</b></li>
+<p>a. Class</p>
+<p>Kelas Mahasiswa disini memiliki tiga properti privat: $nama, $nim, dan $jurusan.
+
+```
+// Definisi class Mahasiswa
+class Mahasiswa {
+    // Properti private untuk menyimpan data mahasiswa
+    private $nama;
+    private $nim;
+    private $jurusan;
+```
+</p>
+<p>b. Property</p>
+<p>Properti yang digunakan bersifat private, yaitu hanya dapat diakses dari dalam kelas itu sendiri. Dengan menjadikan properti ini privat, kita menerapkan prinsip encapsulation untuk melindungi data agar tidak dapat diakses langsung dari luar kelas.
+
+```
+// Properti private untuk menyimpan data mahasiswa
+    private $nama;
+    private $nim;
+    private $jurusan;
+```
+</p>
+<p>c. Constructor untuk Menginisialisasi Property</p>
+<p>Konstruktor adalah metode khusus yang secara otomatis dipanggil ketika sebuah objek dibuat. Parameter $nama, $nim, dan $jurusan digunakan untuk menginisialisasi nilai awal dari masing-masing properti.
+
+```
+// Konstruktor untuk menginisialisasi properti saat objek dibuat
+    public function __construct($nama, $nim, $jurusan) {
+        // Inisialisasi properti dengan nilai yang diberikan melalui parameter
+        $this->nama = $nama;
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+```
+</p>
+<p>d. Metode Getter dan Setter</p>
+<p>Getter dan setter digunakan untuk mengakses dan mengubah nilai properti privat dari luar kelas.
+<ul>
+  <li>Getter untuk Mengambil Nilai Property</li>
+  <p>Metode getter (getNama, getNIM, dan getJurusan) berfungsi untuk mengambil nilai dari masing-masing properti. Ini memungkinkan properti privat diakses dari luar kelas dengan cara yang lebih terkontrol.
+
+```
+// Metode untuk mendapatkan nilai properti $nama
+    public function getNama() {
+        return $this->nama;
+    }
+// Metode untuk mendapatkan nilai properti $nim
+    public function getNIM() {
+        return $this->nim;
+    }
+// Metode untuk mendapatkan nilai properti $jurusan
+    public function getJurusan() {
+        return $this->jurusan;
+    }
+```
+</p>
+<li>Setter untuk Mengubah Nilai Property</li>
+<p>Metode setter (setNama, setNIM, dan setJurusan) digunakan untuk mengubah nilai dari properti privat. Dengan cara ini, kita bisa menerapkan logika validasi sebelum menetapkan nilai baru, jika diperlukan.
+
+```
+// Metode untuk mengatur nilai properti $nama
+    public function setNama($nama) {
+        $this->nama = $nama;
+    }
+// Metode untuk mengatur nilai properti $nim
+    public function setNIM($nim) {
+        $this->nim = $nim;
+    }
+// Metode untuk mengatur nilai properti $jurusan
+    public function setJurusan($jurusan) {
+        $this->jurusan = $jurusan;
+    }
+}
+```
+</p>
+</ul></p>
+<p>e. Instansiasi Objek dan Penggunaan Getter</p>
+<p>Objek Mahasiswa diinstansiasi dengan memanggil konstruktor, yang kemudian menginisialisasi properti dengan nilai yang diberikan. Nilai yang dioper ("Naimah Damayanti<br>", "230302020 <br>", dan "Komputer dan Bisnis") akan disimpan ke dalam masing-masing properti.
+
+```
+// Membuat objek Mahasiswa dengan nilai yang diberikan
+$mahasiswa = new Mahasiswa("Naimah Damayanti<br>", "230302020 <br>", "Komputer dan Bisnis");
+```
+</p>
+<p>f. Menampilkan Data dengan Getter</p>
+<p>Nilai properti diambil menggunakan metode getter. Metode ini memastikan bahwa nilai properti dapat diambil dari luar kelas meskipun sifatnya privat.
+
+```
+// Menampilkan data mahasiswa menggunakan metode getter
+echo $mahasiswa->getNama();      // Output: Naimah Damayanti
+echo $mahasiswa->getNIM();       // Output: 230302020 
+echo $mahasiswa->getJurusan();   // Output: Komputer dan Bisnis
+```
+</p>
+<p>g. Output Kode</p>
+<p>
+  
+```
+Naimah Damayanti
+230302020 
+Komputer dan Bisnis
+```
+</p>
+
+<li>Inheritance</li>
+<p>a. </p>
 </ol>
