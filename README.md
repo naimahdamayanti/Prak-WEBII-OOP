@@ -836,3 +836,441 @@ Fitur Mahasiswa: Cek nilai.
 </ol>
 
 <h2>Jobsheet 3</h2>
+<ol>
+  <li><b>Inheritance dan Polymorphism</b></li>
+  <p>a. Definisi Kelas Person</p>
+  <ul>
+    <li>Class</li>
+    <p>Kelas Person Ini adalah kelas dasar atau induk yang berisi atribut dan metode yang umum untuk semua tipe Person.
+    
+    ```
+    // Definisi kelas Person sebagai kelas induk
+    class Person {
+    // Atribut protected untuk menyimpan nama, dapat diakses oleh kelas turunan
+    protected $name;
+    // Konstruktor untuk menginisialisasi atribut name saat objek Person dibuat
+    public function __construct($name) {
+        // Menginisialisasi atribut name dengan nilai yang diberikan sebagai parameter
+        $this->name = $name;
+    }
+    // Metode untuk mendapatkan nilai atribut name
+    public function getName() {
+        // Mengembalikan string yang menggabungkan teks dengan nilai name
+        return "Person Name: " . $this->name;
+    }
+    }
+    ```
+  </p>
+  <li>Property</li>
+  <p>Property protected $name: Atribut ini diset sebagai protected, yang berarti hanya bisa diakses oleh kelas ini dan kelas-kelas turunan.
+  
+  ```
+  // Atribut protected untuk menyimpan nama, dapat diakses oleh kelas turunan
+    protected $name;
+
+  ```
+</p>
+<li>Inisialisasi Konstruktor __construct($name)</li>
+<p> Saat objek Person dibuat, konstruktor ini dipanggil untuk menginisialisasi atribut $name dengan nilai yang diberikan saat objek dibuat.
+
+```
+// Konstruktor untuk menginisialisasi atribut name saat objek Person dibuat
+    public function __construct($name) {
+        // Menginisialisasi atribut name dengan nilai yang diberikan sebagai parameter
+        $this->name = $name;
+    }
+```
+</p>
+<li>Metode getName()</li>
+<p>Metode ini mengembalikan nilai dari atribut $name dengan format teks "Person Name: ". Metode ini akan di-override (ditimpa) oleh kelas-kelas turunan.
+
+```
+// Metode untuk mendapatkan nilai atribut name
+    public function getName() {
+        // Mengembalikan string yang menggabungkan teks dengan nilai name
+        return "Person Name: " . $this->name;
+    }
+}
+```
+</p>
+  </ul>
+
+  <p>b. Definisi Kelas Student</p>
+  <ul>
+    <li>Class Student</li>
+    <p>Kelas ini mewarisi dari kelas Person, artinya Student adalah tipe khusus dari Person yang memiliki atribut dan metode tambahan.
+    
+```
+    // Definisi kelas Student yang mewarisi dari kelas Person
+    class Student extends Person {
+    // Atribut tambahan protected untuk menyimpan studentID, hanya dapat diakses oleh kelas ini dan turunan
+    protected $studentID;
+
+    // Konstruktor untuk menginisialisasi atribut name dan studentID saat objek Student dibuat
+    public function __construct($name, $studentID) {
+        // Memanggil konstruktor dari kelas induk (Person) untuk menginisialisasi name
+        parent::__construct($name);
+        // Menginisialisasi atribut studentID dengan nilai yang diberikan sebagai parameter
+        $this->studentID = $studentID;
+    }
+
+    // Metode untuk mendapatkan nilai atribut studentID
+    public function getStudentID() {
+        // Mengembalikan nilai studentID
+        return $this->studentID;
+    }
+
+    // Override metode getName dari kelas induk untuk memberikan format berbeda yang spesifik untuk Student
+    public function getName() {
+        // Mengembalikan string yang menggabungkan teks dengan nilai name, dengan format khusus untuk mahasiswa
+        return "Nama Mahasiswa: " . $this->name;
+    }
+}
+```
+</p>
+<li>Property protected $studentID</li>
+<p>Atribut ini diset sebagai protected, sehingga hanya bisa diakses oleh kelas ini dan kelas-kelas turunan.
+
+```
+// Atribut tambahan protected untuk menyimpan studentID, hanya dapat diakses oleh kelas ini dan turunan
+    protected $studentID;
+```
+</p>
+<li>Inisialisasi Konstruktor __construct($name, $studentID)</li>
+<p>Konstruktor ini memanggil konstruktor kelas induk Person untuk menginisialisasi atribut $name dengan menggunakan parent::__construct($name). Kemudian, ia menginisialisasi atribut $studentID dengan nilai yang diberikan.
+
+```
+// Konstruktor untuk menginisialisasi atribut name dan studentID saat objek Student dibuat
+    public function __construct($name, $studentID) {
+        // Memanggil konstruktor dari kelas induk (Person) untuk menginisialisasi name
+        parent::__construct($name);
+        // Menginisialisasi atribut studentID dengan nilai yang diberikan sebagai parameter
+        $this->studentID = $studentID;
+    }
+```
+</p>
+<li>Metode getStudentID()</li>
+<p>Metode ini mengembalikan nilai dari atribut $studentID.
+
+```
+// Metode untuk mendapatkan nilai atribut studentID
+    public function getStudentID() {
+        // Mengembalikan nilai studentID
+        return $this->studentID;
+    }
+```
+</p>
+<li>Metode getName()</li>
+<p>Metode ini menimpa metode getName() dari kelas Person untuk mengembalikan string yang sesuai dengan peran mahasiswa, yaitu "Nama Mahasiswa: " diikuti dengan nilai $name.
+
+```
+// Override metode getName dari kelas induk untuk memberikan format berbeda yang spesifik untuk Student
+    public function getName() {
+        // Mengembalikan string yang menggabungkan teks dengan nilai name, dengan format khusus untuk mahasiswa
+        return "Nama Mahasiswa: " . $this->name;
+    }
+}
+```
+</p>
+  </ul>
+
+  <p>c. Definisi Kelas Teacher</p>
+  <ul>
+    <li>Class Teacher</li>
+    <p>Kelas ini juga mewarisi dari kelas Person dan menambahkan atribut serta metode yang khusus untuk dosen.
+    
+  ```
+    // Definisi kelas Teacher yang juga mewarisi dari kelas Person
+    class Teacher extends Person {
+    // Atribut tambahan protected untuk menyimpan teacherID, hanya dapat diakses oleh kelas ini dan turunan
+    protected $teacherID;
+
+    // Konstruktor untuk menginisialisasi atribut name dan teacherID saat objek Teacher dibuat
+    public function __construct($name, $teacherID) {
+        // Memanggil konstruktor dari kelas induk (Person) untuk menginisialisasi name
+        parent::__construct($name);
+        // Menginisialisasi atribut teacherID dengan nilai yang diberikan sebagai parameter
+        $this->teacherID = $teacherID;
+    }
+
+    // Override metode getName dari kelas induk untuk memberikan format berbeda yang spesifik untuk Teacher
+    public function getName() {
+        // Mengembalikan string yang menggabungkan teks dengan nilai name, dengan format khusus untuk dosen
+        return "Nama Dosen: " . $this->name;
+    }
+}
+```
+</p>
+<li>Property protected $teacherID</li>
+<p>Property ini diset sebagai protected, sehingga hanya bisa diakses oleh kelas ini dan kelas-kelas turunan.
+
+```
+// Atribut tambahan protected untuk menyimpan teacherID, hanya dapat diakses oleh kelas ini dan turunan
+    protected $teacherID;
+```
+</p>
+<li>Inisialisasi __construct($name, $teacherID)</li>
+<p>Konstruktor ini bekerja sama dengan konstruktor dari kelas induk untuk menginisialisasi atribut $name dan $teacherID.
+
+```
+// Konstruktor untuk menginisialisasi atribut name dan teacherID saat objek Teacher dibuat
+    public function __construct($name, $teacherID) {
+        // Memanggil konstruktor dari kelas induk (Person) untuk menginisialisasi name
+        parent::__construct($name);
+        // Menginisialisasi atribut teacherID dengan nilai yang diberikan sebagai parameter
+        $this->teacherID = $teacherID;
+    }
+```
+</p>
+<li>Metode getName()</li>
+<p>Metode ini menimpa metode getName() dari kelas Person untuk mengembalikan string yang sesuai dengan peran dosen, yaitu "Nama Dosen: " diikuti dengan nilai $name.
+
+```
+// Override metode getName dari kelas induk untuk memberikan format berbeda yang spesifik untuk Teacher
+    public function getName() {
+        // Mengembalikan string yang menggabungkan teks dengan nilai name, dengan format khusus untuk dosen
+        return "Nama Dosen: " . $this->name;
+    }
+}
+```
+</p>
+  </ul>
+
+<p>d. Membuat Objek Student dan Teacher</p>
+<p>Membuat objek Student dengan nama "Naimah Damayanti" dan studentID "230302020". Konstruktor Student akan memanggil konstruktor Person untuk menginisialisasi nama, dan kemudian menginisialisasi studentID. Selanjutnya, membuat objek Teacher dengan nama "Pak Abdau" dan teacherID"67890". Konstruktor Teacherjuga memanggil konstruktor Person untuk menginisialisasi nama, dan kemudian menginisialisasi teacherID`.
+
+```
+// Membuat objek Student dan Teacher
+$student = new Student("Naimah Damayanti", "230302020");
+$teacher = new Teacher("Pak Abda`u", "67890");
+```
+</p>
+<p>e. Menampilkan Metode getName()</p>
+<p>Metode $student->getName() mengembalikan "Nama Mahasiswa: Naimah Damayanti". Karena Student menimpa metode getName(), metode yang dipanggil adalah versi Student. Selanjutnya, metode $teacher->getName() mengembalikan "Nama Dosen: Pak Abdau". Sama seperti Student, Teacherjuga menimpa metodegetName(), sehingga metode yang dipanggil adalah versi Teacher`.
+
+```
+// Menampilkan hasil pemanggilan metode getName() pada objek Student
+echo $student->getName();   // Output: Nama Mahasiswa: Naimah Damayanti
+
+// Baris baru untuk pemisah
+echo "<br>";
+
+// Menampilkan hasil pemanggilan metode getName() pada objek Teacher
+echo $teacher->getName(); // Output: Nama Dosen: Pak Abda`u
+```
+</p>
+<p>f. Output Kode</p>
+<p>
+
+```
+Nama Mahasiswa: Naimah Damayanti
+Nama Dosen: Pak Abda`u
+```
+</p>
+
+<li><b>Encapsulation</b></li>
+<p>a. Definisi Kelas Person</p>
+<ul>
+  <li>Class Person</li>
+  <p>Kelas dasar yang menyediakan atribut dan metode umum untuk semua entitas Person.
+  
+```
+// Definisi kelas Person sebagai kelas induk
+    class Person {
+        // Atribut protected untuk menyimpan nama
+        protected $name;
+
+        // Konstruktor untuk menginisialisasi nama saat objek Person dibuat
+        public function __construct($name) {
+            $this->name = $name;
+        }
+
+        // Metode untuk mendapatkan nilai atribut name
+        public function getName() {
+            // Mengembalikan string yang menggabungkan teks dengan nilai name
+            return "Person Name: " . $this->name;
+        }
+    }
+```
+</p>
+<li>Property protected $name</li>
+<p>Property ini diset sebagai protected, artinya hanya dapat diakses oleh kelas Person dan kelas-kelas turunan. Atribut ini menyimpan nama orang.
+
+```
+// Atribut protected untuk menyimpan nama
+        protected $name;
+```
+</p>
+<li>Inisialisasi __construct($name)</li>
+<p>Konstruktor ini dipanggil saat objek Person dibuat. Ia menginisialisasi atribut $name dengan nilai yang diberikan saat objek dibuat.
+
+```
+// Konstruktor untuk menginisialisasi nama saat objek Person dibuat
+        public function __construct($name) {
+            $this->name = $name;
+        }
+```
+</p>
+<li>Metode getName()</li>
+<p>Metode ini mengembalikan string "Person Name: " diikuti dengan nilai dari atribut $name. Ini adalah metode yang dapat digunakan untuk mendapatkan nama dari objek Person.
+
+```
+// Metode untuk mendapatkan nilai atribut name
+        public function getName() {
+            // Mengembalikan string yang menggabungkan teks dengan nilai name
+            return "Person Name: " . $this->name;
+        }
+    }
+```
+</p>
+</ul>
+
+<p>b. Definisi Kelas Student</p>
+<ul>
+  <li>Class Student</li>
+  <p>Kelas ini adalah turunan dari Person. Ini berarti Student mewarisi semua atribut dan metode dari Person, dan juga menambahkan atribut dan metode khusus untuk mahasiswa.
+  
+```
+// Definisi kelas Student yang mewarisi kelas Person
+    class Student extends Person {
+        // Atribut private untuk menyimpan studentID
+        private $studentID;
+    
+        // Konstruktor untuk menginisialisasi name dan studentID saat objek Student dibuat
+        public function __construct($name, $studentID) {
+            // Memanggil konstruktor dari kelas induk (Person) untuk menginisialisasi name
+            parent::__construct($name);
+            // Menginisialisasi atribut studentID
+            $this->studentID = $studentID;
+        }
+    
+        // Metode getter untuk name yang meng-override metode di kelas induk
+        public function getName() {
+            // Mengembalikan string yang menggabungkan teks dengan nilai name
+            return "Nama Mahasiswa: " . $this->name;
+        }
+    
+        // Metode getter untuk mendapatkan nilai atribut studentID
+        public function getStudentID() {
+            // Mengembalikan nilai studentID
+            return $this->studentID;
+        }
+    
+        // Metode setter untuk mengubah nilai atribut name
+        public function setName($name) {
+            // Mengatur nilai name dengan nilai baru yang diberikan sebagai parameter
+            $this->name = $name;
+        }
+    
+        // Metode setter untuk mengubah nilai atribut studentID
+        public function setStudentID($studentID) {
+            // Mengatur nilai studentID dengan nilai baru yang diberikan sebagai parameter
+            $this->studentID = $studentID;
+        }
+    }
+```
+</p>
+<li>Property private $studentID</li>
+<p>Property ini menyimpan ID mahasiswa dan diset sebagai private, sehingga hanya bisa diakses oleh metode dalam kelas Student itu sendiri.
+
+```
+// Atribut private untuk menyimpan studentID
+        private $studentID;
+```
+</p>
+<li>Inisialisasi __construct($name, $studentID)</li>
+<p>Konstruktor ini memanggil konstruktor kelas induk Person untuk menginisialisasi atribut $name dan kemudian menginisialisasi atribut $studentID.
+
+```
+// Konstruktor untuk menginisialisasi name dan studentID saat objek Student dibuat
+        public function __construct($name, $studentID) {
+            // Memanggil konstruktor dari kelas induk (Person) untuk menginisialisasi name
+            parent::__construct($name);
+            // Menginisialisasi atribut studentID
+            $this->studentID = $studentID;
+        }
+```
+</p>
+<li>Metode getName() dan getStudentID()</li>
+<p>Metode getName() menimpa (override) metode getName() dari kelas Person. Ini mengembalikan string "Nama Mahasiswa: " diikuti dengan nilai dari atribut $name, untuk menampilkan nama dengan format khusus untuk mahasiswa. Sedangkan, metode getStudentID() mengembalikan nilai dari atribut $studentID.
+
+```
+// Metode getter untuk name yang meng-override metode di kelas induk
+        public function getName() {
+            // Mengembalikan string yang menggabungkan teks dengan nilai name
+            return "Nama Mahasiswa: " . $this->name;
+        }
+// Metode getter untuk mendapatkan nilai atribut studentID
+        public function getStudentID() {
+            // Mengembalikan nilai studentID
+            return $this->studentID;
+        }
+```
+</p>
+<li>Metode setName($name) dan setStudentID($studentID)</li>
+<p>Metode setName($name) mengatur nilai baru untuk atribut $name. Sedangkan, metode setStudentID($studentID) mengatur nilai baru untuk atribut $studentID.
+
+```
+// Metode setter untuk mengubah nilai atribut name
+        public function setName($name) {
+            // Mengatur nilai name dengan nilai baru yang diberikan sebagai parameter
+            $this->name = $name;
+        }
+    
+        // Metode setter untuk mengubah nilai atribut studentID
+        public function setStudentID($studentID) {
+            // Mengatur nilai studentID dengan nilai baru yang diberikan sebagai parameter
+            $this->studentID = $studentID;
+        }
+```
+</p>
+</ul>
+
+<p>c. Membuat Objek Student</p>
+<p>Membuat objek Student dengan nama "Naimah Damayanti" dan studentID "230302020". Konstruktor Student akan memanggil konstruktor dari kelas Person untuk menginisialisasi $name dan menginisialisasi $studentID dengan nilai yang diberikan.
+
+```
+$student = new Student("Naimah Damayanti", "230302020");
+```
+</p>
+<p>d. Menampilkan Data Mahasiswa</p>
+<p>Memanggil metode getName() pada objek Student akan menghasilkan "Nama Mahasiswa: Naimah Damayanti" karena metode ini menimpa metode getName() dari kelas Person dan memanggil metode getStudentID() pada objek Student akan menghasilkan "230302020", yang merupakan nilai dari atribut $studentID.
+
+```
+// Menampilkan nama mahasiswa dengan memanggil metode getName()
+    echo $student->getName(); // Output: Nama Mahasiswa: Naimah Damayanti
+// Menampilkan studentID dengan memanggil metode getStudentID()
+    echo $student->getStudentID(); // Output: 230302020
+```
+</p>
+<p>e. Mengubah dan Menampilkan studendID</p>
+<p>Menggunakan metode setter untuk mengubah nilai dari atribut $name dan $studentID. Setelah perubahan, metode getName() akan menghasilkan "Nama Mahasiswa: Massayu" dan metode getStudentID() akan menghasilkan "54321".
+
+```
+// Mengubah nilai atribut name dan studentID menggunakan metode setter
+    $student->setName("Massayu");
+    $student->setStudentID("54321");
+// Menampilkan nama mahasiswa yang telah diubah
+    echo $student->getName(); // Output: Nama Mahasiswa: Massayu
+    
+    // Baris baru untuk pemisah
+    echo "<br>";
+    
+    // Menampilkan studentID yang telah diubah
+    echo $student->getStudentID(); // Output: 54321
+```
+</p>
+<p>f. Output Kode</p>
+<p>
+
+```
+Nama Mahasiswa: Naimah Damayanti
+230302020
+Nama Mahasiswa: Massayu
+54321
+```
+</p>
+
+<li><b>Abstraction</b></li>
+<p>a. </p>
+</ol>
