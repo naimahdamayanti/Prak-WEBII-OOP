@@ -1272,5 +1272,182 @@ Nama Mahasiswa: Massayu
 </p>
 
 <li><b>Abstraction</b></li>
-<p>a. </p>
+<p>a. Class Abctract Course</p>
+<p>Kelas Course: Kelas ini adalah kelas abstrak. Kelas abstrak adalah kelas yang tidak bisa diinstansiasi secara langsung dan sering digunakan sebagai dasar untuk kelas-kelas lain. Kelas abstrak digunakan untuk mendefinisikan metode yang harus diimplementasikan oleh kelas-kelas turunan.
+
+```
+// Definisi kelas abstrak Course
+    abstract class Course {
+        // Metode abstrak yang harus diimplementasikan oleh kelas turunan
+        abstract public function getCourseDetails();
+    }
+```
+</p>
+<p>b. Definisi Kelas OnlineCourse</p>
+<ul>
+  <li>Class OnlineCourse</li>
+  <p>Kelas ini adalah turunan dari kelas abstrak Course. Karena Course adalah abstrak, OnlineCourse harus mengimplementasikan semua metode abstrak yang ada di Course.
+  
+```
+// Kelas OnlineCourse yang mengimplementasikan Course
+    class OnlineCourse extends Course {
+        // Implementasi dari metode getCourseDetails() untuk kelas OnlineCourse
+        public function getCourseDetails() {
+            // Mengembalikan deskripsi mengenai OnlineCourse
+            return "Ini adalah online course yang dapat diakses kapanpun.";
+        }
+    }
+```
+</p>
+<li>Metode getCourseDetails()</li>
+<p>Di dalam kelas OnlineCourse, metode getCourseDetails() diimplementasikan dengan mengembalikan deskripsi spesifik untuk kursus online. Dalam hal ini, metode mengembalikan string "Ini adalah online course yang dapat diakses kapanpun.".
+
+```
+// Implementasi dari metode getCourseDetails() untuk kelas OnlineCourse
+        public function getCourseDetails() {
+            // Mengembalikan deskripsi mengenai OnlineCourse
+            return "Ini adalah online course yang dapat diakses kapanpun.";
+        }
+    }
+```
+</p>
+</ul>
+
+<p>c. Definisi Kelas OfflineCourse</p>
+<ul>
+  <li>Class OfflineCourse</li>
+  <p>Kelas ini juga merupakan turunan dari Course. Sama seperti OnlineCourse, kelas ini harus mengimplementasikan metode getCourseDetails().
+  
+```
+// Kelas OfflineCourse yang mengimplementasikan Course
+    class OfflineCourse extends Course {
+        // Implementasi dari metode getCourseDetails() untuk kelas OfflineCourse
+        public function getCourseDetails() {
+            // Mengembalikan deskripsi mengenai OfflineCourse
+            return "Ini adalah offline course yang dihadiri secara langsung.";
+        }
+    }
+```
+</p>
+<li>Metode getCourseDetails()</li>
+<p>Di dalam kelas OfflineCourse, metode ini diimplementasikan dengan mengembalikan deskripsi spesifik untuk kursus offline. Metode ini mengembalikan string "Ini adalah offline course yang dihadiri secara langsung.".
+
+```
+// Implementasi dari metode getCourseDetails() untuk kelas OfflineCourse
+        public function getCourseDetails() {
+            // Mengembalikan deskripsi mengenai OfflineCourse
+            return "Ini adalah offline course yang dihadiri secara langsung.";
+        }
+```
+</p>
+</ul>
+
+<p>d. Membuat Objek OnlineCourse dan OfflineCourse</p>
+<p>Di sini, kita membuat objek dari kelas OnlineCourse. Karena OnlineCourse adalah kelas konkret (non-abstrak), kita dapat membuat objek darinya.Sama seperti OnlineCourse, kita juga membuat objek dari kelas OfflineCourse.
+
+```
+$onlineCourse = new OnlineCourse();  // Membuat objek dari kelas OnlineCourse
+    $offlineCourse = new OfflineCourse(); // Membuat objek dari kelas OfflineCourse
+```
+</p>
+<p>e. Memanggil Metode getCourseDetails() pada OnlineCourse dan OfflineCourse</p>
+<p>Ketika kita memanggil metode getCourseDetails() pada objek OnlineCourse, PHP akan menjalankan metode yang didefinisikan di dalam kelas OnlineCourse. Ini menghasilkan string "Ini adalah online course yang dapat diakses kapanpun.". Sedangkan ketika kita memanggil metode getCourseDetails() pada objek OfflineCourse, PHP akan menjalankan metode yang didefinisikan di dalam kelas OfflineCourse. Ini menghasilkan string "Ini adalah offline course yang dihadiri secara langsung.".
+
+```
+// Memanggil metode getCourseDetails() pada objek OnlineCourse dan menampilkannya
+    echo $onlineCourse->getCourseDetails(); // Output: Ini adalah online course yang dapat diakses kapanpun.
+    
+    // Menambahkan baris baru untuk pemisah
+    echo "<br>";
+    
+    // Memanggil metode getCourseDetails() pada objek OfflineCourse dan menampilkannya
+    echo $offlineCourse->getCourseDetails(); // Output: Ini adalah offline course yang dihadiri secara langsung.
+```
+</p>
+<p>f. Output Kode</p>
+<p>
+
+```
+Ini adalah online course yang dapat diakses kapanpun.
+Ini adalah offline course yang dihadiri secara langsung.
+```
+</p>
+
+<li><b>Tugas</b></li>
+<p>a. Definisi Kelas Person</p>
+<ul>
+  <li>Class Person</li>
+  <p>Ini adalah kelas dasar atau kelas induk yang mendefinisikan atribut dan metode dasar untuk objek Person.
+  
+```
+// Definisi class Person sebagai induk dari Dosen dan Mahasiswa
+    class Person {
+        // Atribut protected name, dapat diakses oleh kelas ini dan kelas turunannya
+        protected $name;
+
+        // Konstruktor untuk menginisialisasi atribut name saat objek dibuat
+        public function __construct($name) {
+            $this->name = $name;
+        }
+
+        // Metode untuk mendapatkan nilai name
+        public function getName() {
+            return $this->name;
+        }
+
+        // Metode untuk Polymorphism, akan di-override oleh class turunan
+        public function getRole() {
+            // Mengembalikan peran dasar "Person"
+            return "Person";
+        }
+    }
+```
+</p>
+<li>Property protected $name</li>
+<p>Property ini disimpan dengan tingkat akses protected, yang berarti dapat diakses oleh kelas ini dan kelas turunan.
+
+```
+// Atribut protected name, dapat diakses oleh kelas ini dan kelas turunannya
+        protected $name;
+```
+</p>
+<li>Inisilaisasi __construct($name)</li>
+<p>Konstruktor ini digunakan untuk menginisialisasi objek dengan memberikan nilai name saat objek dibuat.
+
+```
+// Konstruktor untuk menginisialisasi atribut name saat objek dibuat
+        public function __construct($name) {
+            $this->name = $name;
+        }
+```
+</p>
+<li>Metode getName()</li>
+<p>Metode ini mengembalikan nilai dari name.
+
+```
+// Metode untuk mendapatkan nilai name
+        public function getName() {
+            return $this->name;
+        }
+```
+</p>
+<li>Metode getRole()</li>
+<p>Metode ini memberikan informasi tentang peran, yang dalam kelas ini diatur sebagai "Person". Metode ini akan di-override oleh kelas-kelas turunan.
+
+```
+// Metode untuk Polymorphism, akan di-override oleh class turunan
+        public function getRole() {
+            // Mengembalikan peran dasar "Person"
+            return "Person";
+        }
+    }
+```
+</p>
+</ul>
+
+<p>b. Definisi Kelas Dosen</p>
+<ul>
+  <li>Class Dosen</li>
+  <p></p>
+</ul>
 </ol>
