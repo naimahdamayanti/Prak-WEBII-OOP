@@ -1445,9 +1445,297 @@ Ini adalah offline course yang dihadiri secara langsung.
 </p>
 </ul>
 
-<p>b. Definisi Kelas Dosen</p>
+<p>b. Definisi Class Dosen</p>
 <ul>
   <li>Class Dosen</li>
-  <p></p>
+  <p>Kelas ini mewarisi dari Person, sehingga Dosen adalah Person dengan atribut tambahan nidn.
+  
+```
+// Definisi class Dosen yang mewarisi dari Person
+    class Dosen extends Person {
+        // Atribut private untuk menyimpan NIDN, hanya dapat diakses oleh class ini
+        private $nidn;
+
+        // Konstruktor untuk menginisialisasi name dan nidn saat objek dibuat
+        public function __construct($name, $nidn) {
+            // Memanggil konstruktor dari kelas induk (Person)
+            parent::__construct($name);
+            // Menginisialisasi atribut nidn dengan nilai yang diberikan
+            $this->nidn = $nidn;
+        }
+
+        // Override metode getRole untuk menampilkan peran spesifik Dosen
+        public function getRole() {
+            // Mengembalikan string "Dosen" sebagai peran
+            return "Dosen";
+        }
+
+        // Metode getter untuk mendapatkan nilai nidn
+        public function getNidn() {
+            return $this->nidn;
+        }
+
+        // Metode setter untuk mengubah nilai nidn
+        public function setNidn($nidn) {
+            $this->nidn = $nidn;
+        }
+    }
+```
+</p>
+<li>Property private $nidn</li>
+<p>Property nidn bersifat private, artinya hanya bisa diakses di dalam kelas Dosen.
+
+```
+// Atribut private untuk menyimpan NIDN, hanya dapat diakses oleh class ini
+        private $nidn;
+```
+</p>
+<li>Inisialisasi __construct($name, $nidn)</li>
+<p>Konstruktor ini memanggil konstruktor induk (parent::__construct($name)) untuk menginisialisasi name, dan juga menginisialisasi nidn.
+
+```
+// Konstruktor untuk menginisialisasi name dan nidn saat objek dibuat
+        public function __construct($name, $nidn) {
+            // Memanggil konstruktor dari kelas induk (Person)
+            parent::__construct($name);
+            // Menginisialisasi atribut nidn dengan nilai yang diberikan
+            $this->nidn = $nidn;
+        }
+```
+</p>
+<li>Metode getRole()</li>
+<p>Metode ini meng-override metode getRole() dari kelas Person, dan mengembalikan "Dosen" sebagai peran.
+
+```
+// Override metode getRole untuk menampilkan peran spesifik Dosen
+        public function getRole() {
+            // Mengembalikan string "Dosen" sebagai peran
+            return "Dosen";
+        }
+```
+</p>
+<li>Metode getNidn() dan setNidn($nidn)</li>
+<p>Metode getNidn() mengembalikan nilai nidn, sedangkan setNidn() digunakan untuk mengubah nilai nidn.
+
+```
+// Metode getter untuk mendapatkan nilai nidn
+        public function getNidn() {
+            return $this->nidn;
+        }
+
+        // Metode setter untuk mengubah nilai nidn
+        public function setNidn($nidn) {
+            $this->nidn = $nidn;
+        }
+    }
+```
+</p>
 </ul>
+
+<p>c. Definisi Class Mahasiswa</p>
+<ul>
+  <li>Class Mahasiswa</li>
+  <p>Kelas ini juga mewarisi dari Person, sehingga Mahasiswa adalah Person dengan atribut tambahan nim.
+  
+```
+// Definisi class Mahasiswa yang mewarisi dari Person
+    class Mahasiswa extends Person {
+        // Atribut private untuk menyimpan NIM, hanya dapat diakses oleh class ini
+        private $nim;
+
+        // Konstruktor untuk menginisialisasi name dan nim saat objek dibuat
+        public function __construct($name, $nim) {
+            // Memanggil konstruktor dari kelas induk (Person)
+            parent::__construct($name);
+            // Menginisialisasi atribut nim dengan nilai yang diberikan
+            $this->nim = $nim;
+        }
+
+        // Override metode getRole untuk menampilkan peran spesifik Mahasiswa
+        public function getRole() {
+            // Mengembalikan string "Mahasiswa" sebagai peran
+            return "Mahasiswa";
+        }
+
+        // Metode getter untuk mendapatkan nilai nim
+        public function getNim() {
+            return $this->nim;
+        }
+
+        // Metode setter untuk mengubah nilai nim
+        public function setNim($nim) {
+            $this->nim = $nim;
+        }
+    }
+```
+</p>
+<li>Property Private $nim</li>
+<p>Property nim bersifat private, artinya hanya bisa diakses di dalam kelas Mahasiswa.
+
+```
+// Atribut private untuk menyimpan NIM, hanya dapat diakses oleh class ini
+        private $nim;
+```
+</p>
+<li>Inisialisasi __construct($name, $nim)</li>
+<p>Konstruktor ini memanggil konstruktor induk (parent::__construct($name)) untuk menginisialisasi name, dan juga menginisialisasi nim.
+
+```
+// Konstruktor untuk menginisialisasi name dan nim saat objek dibuat
+        public function __construct($name, $nim) {
+            // Memanggil konstruktor dari kelas induk (Person)
+            parent::__construct($name);
+            // Menginisialisasi atribut nim dengan nilai yang diberikan
+            $this->nim = $nim;
+        }
+```
+</p>
+<li>Metode getRole()</li>
+<p>Metode ini meng-override metode getRole() dari kelas Person, dan mengembalikan "Mahasiswa" sebagai peran.
+
+```
+// Override metode getRole untuk menampilkan peran spesifik Mahasiswa
+        public function getRole() {
+            // Mengembalikan string "Mahasiswa" sebagai peran
+            return "Mahasiswa";
+        }
+```
+</p>
+<li>Metode getNim() dan setNim($nim)</li>
+<p>Metode getNim() mengembalikan nilai nim, sedangkan setNim() digunakan untuk mengubah nilai nim.
+
+```
+// Metode getter untuk mendapatkan nilai nim
+        public function getNim() {
+            return $this->nim;
+        }
+
+        // Metode setter untuk mengubah nilai nim
+        public function setNim($nim) {
+            $this->nim = $nim;
+        }
+    }
+```
+</p>
+</ul>
+
+<p>d. Definisi Class Abstrak Jurnal</p>
+<ul>
+  <li>Class Jurnal</li>
+  <p>Ini adalah kelas abstrak yang tidak dapat diinstansiasi. Kelas ini menyediakan kerangka dasar untuk semua jenis jurnal.
+  
+```
+// Definisi class abstrak Jurnal
+    abstract class Jurnal {
+        // Atribut protected untuk menyimpan judul jurnal
+        protected $judul;
+
+        // Konstruktor untuk menginisialisasi judul jurnal saat objek dibuat
+        public function __construct($judul) {
+            $this->judul = $judul;
+        }
+
+        // Metode abstrak untuk pengelolaan pengajuan jurnal, harus diimplementasikan oleh class turunan
+        abstract public function submit();
+    }
+```
+</p>
+<li>Property protected $judul</li>
+<p>Property ini menyimpan judul jurnal.
+
+```
+// Atribut protected untuk menyimpan judul jurnal
+        protected $judul;
+```
+</p>
+<li>Inisialisasi __construct($judul)</li>
+<p>Konstruktor ini menginisialisasi atribut judul.
+
+```
+// Konstruktor untuk menginisialisasi judul jurnal saat objek dibuat
+        public function __construct($judul) {
+            $this->judul = $judul;
+        }
+```
+</p>
+<li>Metode Abstrak submit()</li>
+<p> Metode ini harus diimplementasikan oleh kelas turunan yang konkret.
+
+```
+// Metode abstrak untuk pengelolaan pengajuan jurnal, harus diimplementasikan oleh class turunan
+        abstract public function submit();
+    }
+
+```
+</p>
+</ul>
+
+<p>e. Class JurnalDosen</p>
+<p>Kelas ini mengimplementasikan kelas abstrak Jurnal dengan menggunakan metode submit() yang menyatakan bahwa jurnal dosen dengan judul tertentu telah diajukan.
+
+```
+// Definisi class JurnalDosen yang mengimplementasikan Jurnal
+    class JurnalDosen extends Jurnal {
+        // Implementasi metode submit untuk JurnalDosen
+        public function submit() {
+            // Mengembalikan string yang menyatakan bahwa jurnal dosen telah diajukan
+            return "Jurnal Dosen '$this->judul' telah diajukan.";
+        }
+    }
+```
+</p>
+<p>f. Class JurnalMahasiswa</p>
+<p>Kelas ini juga mengimplementasikan kelas abstrak Jurnal dan juga menggunakan metode submit().
+
+```
+// Definisi class JurnalMahasiswa yang mengimplementasikan Jurnal
+    class JurnalMahasiswa extends Jurnal {
+        // Implementasi metode submit untuk JurnalMahasiswa
+        public function submit() {
+            // Mengembalikan string yang menyatakan bahwa jurnal mahasiswa telah diajukan
+            return "Jurnal Mahasiswa '$this->judul' telah diajukan.";
+        }
+    }
+```
+</p>
+<p>g. Membuat Objek dan Menampilkannya</p>
+<p>Objek Dosen dibuat dengan nama "Pak Abda`u" dan NIDN "123456789". Objek Mahasiswa dibuat dengan nama "Naimah Damayanti" dan NIM "230302020". Objek JurnalDosen dibuat dengan judul "Penelitian A". Objek JurnalMahasiswa dibuat dengan judul "Skripsi B". Selanjutnya, Menampilkan Nama dan Peran Dosen menggunakan getName() dan getRole() untuk menampilkan informasi bahwa "Pak Abda`u" adalah "Dosen". Menampilkan Nama dan Peran Mahasiswa menggunakan getName() dan getRole() untuk menampilkan informasi bahwa "Naimah Damayanti" adalah "Mahasiswa". Menampilkan Hasil Submit JurnalDosen menggunakan metode submit() untuk menampilkan bahwa jurnal dosen "Penelitian A" telah diajukan. Menampilkan Hasil Submit JurnalMahasiswa menggunakan metode submit() untuk menampilkan bahwa jurnal mahasiswa "Skripsi B" telah diajukan.
+
+```
+// Membuat objek Dosen dengan nama "Pak Abda`u" dan NIDN "123456789"
+    $dosen = new Dosen("Pak Abda`u", "123456789");
+
+    // Membuat objek Mahasiswa dengan nama "Naimah Damayanti" dan NIM "230302020"
+    $mahasiswa = new Mahasiswa("Naimah Damayanti", "230302020");
+
+    // Menampilkan nama dan peran objek Dosen
+    echo $dosen->getName() . " adalah " . $dosen->getRole() . "<br>"; // Output: Pak Abda`u adalah Dosen
+
+    // Menampilkan nama dan peran objek Mahasiswa
+    echo $mahasiswa->getName() . " adalah " . $mahasiswa->getRole() . "<br>"; // Output: Naimah Damayanti adalah Mahasiswa
+
+    // Contoh penggunaan class Jurnal
+    // Membuat objek JurnalDosen dengan judul "Penelitian A"
+    $jurnalDosen = new JurnalDosen("Penelitian A");
+
+    // Membuat objek JurnalMahasiswa dengan judul "Skripsi B"
+    $jurnalMahasiswa = new JurnalMahasiswa("Skripsi B");
+
+    // Menampilkan hasil submit jurnal dosen
+    echo $jurnalDosen->submit() . "<br>"; // Output: Jurnal Dosen 'Penelitian A' telah diajukan.
+
+    // Menampilkan hasil submit jurnal mahasiswa
+    echo $jurnalMahasiswa->submit() . "<br>"; // Output: Jurnal Mahasiswa 'Skripsi B' telah diajukan.
+```
+</p>
+<p>h. Output Kode</p>
+<p>
+
+```
+Pak Abda`u adalah Dosen
+Naimah Damayanti adalah Mahasiswa
+Jurnal Dosen 'Penelitian A' telah diajukan.
+Jurnal Mahasiswa 'Skripsi B' telah diajukan.
+```
+</p>
 </ol>
